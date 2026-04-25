@@ -1,0 +1,76 @@
+# PROMPT 1
+
+You are a senior TypeScript/Node.js developer.
+Create a complete web application using TypeScript with the following stack:
+
+Requirements:
+- Runtime: Node.js 20+ with TypeScript 5+
+- Framework: Express.js (backend) + React 18 (frontend)
+- Architecture: Clean Architecture with clear separation of layers
+  (Domain, Application, Infrastructure, Presentation)
+- Product module with full CRUD (Create, Read, Update, Delete)
+- Database: PostgreSQL with Prisma ORM (or TypeORM if preferred)
+- Validation: Zod for schema validation and error handling
+- API: RESTful API with proper HTTP status codes and error responses
+
+Technical requirements:
+- Strict TypeScript (no implicit any, strict mode enabled)
+- DTOs for data transfer between layers
+- Repository pattern for data access
+- Service layer for business logic
+- Centralized error handling middleware
+- Environment variables via dotenv (.env.example included)
+
+Generate all necessary files and folder structure, including:
+- tsconfig.json with strict settings
+- package.json with all scripts (dev, build, start, lint)
+- Prisma schema for the Product entity
+- README with step-by-step instructions to run the project
+
+# PROMPT 2
+
+Extend the application with the following:
+
+1. JWT Authentication:
+   - POST /auth/register and POST /auth/login endpoints
+   - Middleware that validates the JWT token and protects all /products routes
+   - Store hashed passwords using bcrypt
+
+2. Centralized error handling:
+   - Express error-handling middleware that catches all thrown errors
+   - Structured logging using Pino (log level, timestamp, route, error message)
+   - Return consistent JSON error responses { status, message, details }
+
+Apply strict TypeScript throughout: no implicit any, typed request/response objects,
+typed middleware. Refactor any existing code that violates these rules.
+
+# PROMPT 3
+
+Improve the React frontend of the application:
+- Use Bootstrap 5 for a responsive, modern layout
+- Add a shared navbar and layout component
+- Product list page: table with Edit and Delete buttons, loading and empty states
+- Product form page: reusable for both Create and Edit, with client-side Zod validation
+  and inline error messages
+- Show toast notifications on successful create/update/delete
+
+Make sure the full app (backend + frontend) runs without errors with:
+  npm run dev
+Verify that all CRUD operations work end-to-end through the UI.
+
+# PROMPT 4
+
+Add the following to complete the project:
+
+1. Unit tests using Jest + ts-jest:
+   - Test ProductService: mock the repository with jest.fn()
+   - Cover all 4 CRUD use cases and at least one validation error case
+
+2. README.md with:
+   - Project overview and Clean Architecture diagram (text-based)
+   - Prerequisites (Node, PostgreSQL, environment variables)
+   - Step-by-step instructions to run in development and production
+   - List of all API endpoints with method, path, auth requirement, and example response
+
+Review the full project and flag any remaining implicit any, unhandled promise
+rejections, or missing input validation.
